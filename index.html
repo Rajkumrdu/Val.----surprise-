@@ -22,6 +22,14 @@
         }
 
         body {
+        <
+        <!-- LOCK SCREEN -->
+<div id="lockScreen" style="position:fixed; inset:0; background:rgba(255,255,255,0.9); z-index:9999; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <h1>Enter Password 💖</h1>
+    <input type="password" id="passwordInput" placeholder="Password" style="padding:10px; font-size:1.2rem; border-radius:5px; border:1px solid #c9184a; margin:10px 0;">
+    <button onclick="checkPassword()" style="padding:10px 20px; font-size:1rem; border:none; border-radius:5px; background:#c9184a; color:white; cursor:pointer;">Unlock</button>
+    <p id="errorMsg" style="color:red; margin-top:10px;"></p>
+</div>
             font-family: 'Poppins', sans-serif;
             background: radial-gradient(circle, #ffe5ec 0%, #ffb3c1 100%);
             height: 100vh;
@@ -279,11 +287,19 @@
 <body>
     <!-- Music Button -->
     <button class="music-btn" onclick="toggleMusic()">🎵</button>
-<audio id="bgMusic" loop>
+<audio id="bgMusic" autoplay loop>
     <source src="https://sndup.net/your_mp3_link_here.mp3" type="audio/mpeg">
-        <!-- Replace above URL with I Wanna Be Yours MP3 -->
-    </audio>
+    Your browser does not support the audio element.
+</audio>
 
+<script>
+    // Ensure autoplay works on most browsers
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.volume = 0.5; // Optional: set volume 0.0 - 1.0
+    bgMusic.play().catch(() => {
+        console.log("Autoplay blocked. User interaction needed to start music.");
+    });
+</script>
     <div id="roseRain"></div>
 
     <div class="container">
@@ -297,9 +313,17 @@
         </div>
 
         <!-- PAGE 2: 3x2 Photo Gallery -->
-        <div class="page" id="page2">
+            <div class="page" id="page2">
             <h1>Our Love Moments</h1>
-            
+            <div class="grid">
+                <div style="--r: -3deg">.....</div>
+                <div style="--r: 2deg">.....</div>
+                <div style="--r: -1deg">
+                   .....  </div>
+                <div style="--r: 3deg">......</div>
+                <div style="--r: -2deg">.....</div>
+                <div style="--r: 1deg">......</div>
+            </div>
             <button class="btn" onclick="nextPage(3)">Pick a Gift</button>
         </div>
 
@@ -322,7 +346,7 @@
                 My Dearest,<br><br>
                 Your love fills my life with joy and warmth. On this special Valentine’s Day, I want to tell you that you are my everything.<br><br>
                 I promise to love you endlessly.<br><br>
-                Always Yours ❤️
+              I am  Always Yours ❤️
             </div>
             <button class="btn" onclick="nextPage(5)">One Final Note</button>
         </div>
@@ -391,6 +415,7 @@
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 1000);
         });
+        
     </script>
 </body>
 
